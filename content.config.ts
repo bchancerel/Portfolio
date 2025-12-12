@@ -23,15 +23,17 @@ export default defineContentConfig({
       })
     }),
 
-    experience: defineCollection({
+    experiences: defineCollection({
       type: 'page',
-      source: 'experience/*.md',
+      source: 'experiences/*.md',
       schema: z.object({
         title: z.string(),
         company: z.string().optional(),
+        location: z.string().optional(),
+        duration: z.string().optional(),
         startDate: z.string().optional(),
-        endDate: z.string().optional(),
-        location: z.string().optional()
+        endDate: z.string().optional(),      
+        stack: z.array(z.string()).optional()
       })
     })
   }

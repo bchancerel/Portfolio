@@ -8,7 +8,6 @@ const slug = computed(() =>
     : [route.params.slug as string]
 )
 
-// On reconstruit le path du contenu, ex : "/about" ou "/blog/article-1"
 const path = computed(() => '/' + slug.value.join('/'))
 
 const { data: page } = await useAsyncData(path.value, () =>

@@ -1,1 +1,99 @@
 @import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* CSS normal (pas de @apply) */
+.canvas-bg {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  opacity: 0.6;
+  background-image:
+    radial-gradient(circle at top, rgba(56,189,248,0.14), transparent 55%),
+    radial-gradient(circle at bottom, rgba(129,140,248,0.2), transparent 55%);
+}
+
+.canvas-card-shadow {
+  box-shadow: 0 0 40px rgba(15, 23, 42, 0.9);
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(56, 189, 248, 0.6) rgba(15, 23, 42, 0.8);
+}
+
+/* Chrome, Edge, Safari */
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.9);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: rgba(56, 189, 248, 0.6);
+  border-radius: 999px;
+  border: 2px solid rgba(15, 23, 42, 0.9);
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(56, 189, 248, 0.85);
+}
+
+:root {
+  --canvas-line: rgba(148, 163, 184, 0.18); 
+}
+
+body::after {
+  content: "";
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.06;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+}
+
+.canvas-shell {
+  position: relative;
+  padding-left: 24px; 
+}
+
+.canvas-shell::before {
+  content: "";
+  position: absolute;
+  left: 8px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--canvas-line);
+}
+
+@media (max-width: 768px) {
+  .canvas-shell::before {
+    display: none;
+  }
+}
+
+.scroll-indicator {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  z-index: 50;
+  background: rgba(15, 23, 42, 0.35);
+}
+
+.scroll-indicator__bar {
+  height: 100%;
+  transform-origin: left;
+  transform: scaleX(0);
+  background: linear-gradient(90deg, rgba(56,189,248,0.9), rgba(129,140,248,0.9));
+}
