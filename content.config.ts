@@ -19,7 +19,12 @@ export default defineContentConfig({
         title: z.string(),
         description: z.string().optional(),
         techs: z.array(z.string()).optional(),
-        featured: z.boolean().default(false)
+        images: z.string().optional(),
+        date: z.string().optional(),
+        links: z.object({
+          demo: z.string().optional(),
+          repo: z.string().optional()
+        }).optional(),
       })
     }),
 

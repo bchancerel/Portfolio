@@ -29,7 +29,7 @@
                     Expériences
                 </h1>
                 <p class="mt-2 text-sm text-slate-400">
-                    Un aperçu de mes expériences — focus impact & stack.
+                    Un aperçu de mes expériences.
                 </p>
             </header>
 
