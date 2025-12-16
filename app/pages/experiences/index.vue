@@ -5,7 +5,7 @@
         'experiences-list',
         async () => {
             const res = await queryCollection('experiences').all()
-            return res.sort((a, b) => (b.startDate ?? '').localeCompare(a.startDate ?? ''))
+            return res.sort((a, b) => (b.start ?? '').localeCompare(a.start ?? ''))
         }
     )
 
@@ -26,7 +26,7 @@
         <div class="relative mx-auto max-w-6xl px-4 py-8 md:py-12">
             <header class="mb-10">
                 <h1 class="text-3xl font-semibold tracking-tight md:text-4xl">
-                    Expérience
+                    Expériences
                 </h1>
                 <p class="mt-2 text-sm text-slate-400">
                     Un aperçu de mes expériences — focus impact & stack.

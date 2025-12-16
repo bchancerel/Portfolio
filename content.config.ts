@@ -29,10 +29,11 @@ export default defineContentConfig({
       schema: z.object({
         title: z.string(),
         company: z.string().optional(),
+        logo: z.string().optional(),
         location: z.string().optional(),
         duration: z.string().optional(),
-        startDate: z.string().optional(),
-        endDate: z.string().optional(),      
+        start: z.string().optional(),
+        end: z.string().optional(),      
         stack: z.array(z.string()).optional()
       })
     })

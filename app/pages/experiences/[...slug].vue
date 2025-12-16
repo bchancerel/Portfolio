@@ -23,12 +23,6 @@
         return parts.join(' · ')
     })
 
-    const dateline = computed(() => {
-        const start = page.value?.startDate
-        const end = page.value?.endDate
-        if (!start && !end) return ''
-        return `${start ?? '-'} — ${end ?? 'Present'}`
-    })
 </script>
 
 <template>
@@ -37,22 +31,39 @@
 
         <div class="relative mx-auto max-w-4xl px-4 py-8 md:py-12">
             <header class="mb-10">
+                <div class="mb-8">
+                    <NuxtLink 
+                        to="/experiences"
+                        class="text-sm text-sky-400 hover:text-sky-300 underline underline-offset-4"
+                    ><Icon name="heroicons:arrow-left" class="h-4 w-4" /></NuxtLink>
+                </div>
                 <p class="text-xs uppercase tracking-[0.2em] text-slate-500">Expériences</p>
 
-                <div class="flex justify-between items-center">
-                    <h1 class="mt-2 text-3xl font-semibold tracking-tight md:text-4xl"> {{ page?.title }} </h1>
-                    <div class="mt-8">
-                        <NuxtLink 
-                            to="/experiences"
-                            class="text-sm text-sky-400 hover:text-sky-300 underline underline-offset-4"
-                        ><Icon name="heroicons:arrow-left" class="h-4 w-4" /></NuxtLink>
-                    </div>
-                </div>
+                <div class="mt-2 flex items-start justify-between gap-6">
+                    <div class="min-w-0">
+                        <h1 class="text-3xl font-semibold tracking-tight md:text-4xl">
+                            {{ page?.title }}
+                        </h1>
 
-                <div class="mt-3 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-slate-400">
-                    <span v-if="metaline"> {{ metaline }} </span>
-                    <span v-if="metaline && dateline" class="text-slate-600"> · </span>
-                    <span v-if="dateline"> {{ dateline }} </span>
+                        <div class="mt-3 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-slate-400">
+                            <span v-if="metaline">{{ metaline }}</span>
+                        </div>
+                    </div>
+
+                    <div
+                        v-if="page?.logo"
+                        class="shrink-0 size-16 md:size-20 rounded-full
+                                border border-slate-800/80
+                                bg-slate-950/60
+                                overflow-hidden"
+                    >
+                        <img
+                            :src="page.logo"
+                            :alt="page?.company ? `Logo ${page.company}` : 'Logo entreprise'"
+                            class="h-full w-full object-cover"
+                            loading="lazy"
+                        >
+                    </div>
                 </div>
 
                 <div v-if="page?.stack?.length" class="mt-4 flex flex-wrap gap-2">
