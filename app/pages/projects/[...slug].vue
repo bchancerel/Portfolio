@@ -20,6 +20,10 @@
 
     const hasDemo = computed(() => !!page.value?.links?.demo)
     const hasRepo = computed(() => !!page.value?.links?.repo)
+
+    useHead({
+        title: `${page.value?.title} — Projets`,
+    })
 </script>
 
 <template>

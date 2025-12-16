@@ -23,6 +23,10 @@
         return parts.join(' · ')
     })
 
+    useHead({
+        title: `${page.value?.title} — Expériences`,
+    })
+
 </script>
 
 <template>

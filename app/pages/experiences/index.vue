@@ -24,7 +24,7 @@
         <div class="canvas-bg" />
 
         <div class="relative mx-auto max-w-6xl px-4 py-8 md:py-12">
-            <header class="mb-10">
+            <header class="mb-10 text-center">
                 <h1 class="text-3xl font-semibold tracking-tight md:text-4xl">
                     Expériences
                 </h1>

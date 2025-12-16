@@ -26,11 +26,8 @@
     <div class="scroll-indicator">
       <div class="scroll-indicator__bar" :style="{ transform: `scaleX(${progress})` }" />
     </div>
-    <!-- Layout global (optionnel) -->
-    <!-- Navbar globale ici plus tard -->
 
     <NuxtPage />
 
-    <!-- Footer global ici plus tard -->
   </div>
 </template>

@@ -1,7 +1,14 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
 import tailwindcss from "@tailwindcss/vite";
 
 export default defineNuxtConfig({
+  app: {
+    head: {
+      title: 'Benjamin Chancerel | Portfolio',
+      meta: [
+        { name: 'description', content: 'Portfolio de développeur front-end' },
+      ],
+    },
+  },
   modules: [
     '@nuxt/content',
     '@nuxt/eslint',

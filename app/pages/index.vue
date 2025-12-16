@@ -43,9 +43,11 @@ const { data: home } = await useAsyncData('home', () =>
                     </p>
 
                     <div class="flex flex-wrap gap-3 text-xs md:text-sm">
-                        <a href="#projects" class="rounded-full bg-sky-500 px-4 py-2 font-medium text-slate-950 shadow-sm transition hover:bg-sky-400">
-                            Voir mes projets
-                        </a>
+                        <NuxtLink 
+                            to="/experiences"
+                            class="rounded-full bg-sky-500 px-4 py-2 font-medium text-slate-950 shadow-sm transition hover:bg-sky-400"
+                        > Voir mes projets
+                        </NuxtLink>
                         <a href="#contact" class="rounded-full border border-slate-700/80 px-4 py-2 font-medium text-slate-200 transition hover:border-sky-400 hover:text-sky-200">
                             Me contacter
                         </a>
