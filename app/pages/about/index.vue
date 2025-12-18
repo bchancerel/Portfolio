@@ -11,6 +11,10 @@
     }
 
     const isAvailable = computed(() => !!about.value?.available)
+
+    useHead({
+        title: `Benjamin Chancerel | À propos`,
+    })
 </script>
 
 <template>

@@ -1,3 +1,9 @@
+<script setup lang="ts">
+    useHead({
+        title: `Benjamin Chancerel | Projets`,
+    })
+</script>
+
 <template>
     <main class="min-h-screen bg-slate-950 text-slate-100">
         <div class="canvas-bg" />

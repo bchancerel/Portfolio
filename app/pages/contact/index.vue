@@ -9,6 +9,10 @@
     if (!contact.value) {
         throw createError({ statusCode: 404, statusMessage: 'Contact not found' })
     }
+
+    useHead({
+        title: `Benjamin Chancerel | Contact`,
+    })
 </script>
 
 <template>
