@@ -41,6 +41,25 @@ export default defineContentConfig({
         end: z.string().optional(),      
         stack: z.array(z.string()).optional()
       })
-    })
+    }),
+
+    about: defineCollection({
+      type: 'page',
+      source: 'about.md',
+      schema: z.object({
+        title: z.string(),
+        subtitle: z.string().optional(),
+        location: z.string().optional(),
+        available: z.boolean().optional(),
+        stack_dev: z.array(z.string()).optional(),
+        stack_qa: z.array(z.string()).optional(),
+        languages: z.array(z.string()).optional(),
+        outils: z.array(z.string()).optional(),
+        links: z.object({
+          github: z.string().optional(),
+          linkedin: z.string().optional(),
+        }).optional(),
+      }),
+    }),
   }
 })

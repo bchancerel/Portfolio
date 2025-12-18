@@ -70,8 +70,15 @@ const { data: home } = await useAsyncData('home', () =>
                         <p class="text-xs uppercase tracking-[0.2em] text-slate-500">
                             Disponibilité
                         </p>
-                        <span class="rounded-full bg-emerald-500/15 px-2.5 py-1 text-[11px] font-medium text-emerald-300">
-                            Ouvert aux opportunités
+
+                        <span class="inline-flex items-center gap-2 rounded-full px-2.5 py-1 bg-emerald-400/10 ring-1 ring-emerald-400/30">
+                            <span class="relative flex h-3 w-3 items-center justify-center">
+                                <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500/80"/>
+                                <span class="relative h-1.5 w-1.5 rounded-full bg-emerald-400"/>
+                            </span>
+                            <span class="text-[11px] font-medium text-emerald-300">
+                                Ouvert aux opportunités
+                            </span>
                         </span>
                     </div>
 
