@@ -44,7 +44,7 @@ export default defineContentConfig({
     }),
 
     about: defineCollection({
-      type: 'page',
+      type: 'data',
       source: 'about.md',
       schema: z.object({
         title: z.string(),
@@ -58,6 +58,20 @@ export default defineContentConfig({
         links: z.object({
           github: z.string().optional(),
           linkedin: z.string().optional(),
+        }).optional(),
+      }),
+    }),
+
+    contact: defineCollection({
+      type: 'data',
+      source: 'contact.md',
+      schema: z.object({
+        title: z.string(),
+        subtitle: z.string().optional(),
+        email: z.string().email().optional(),
+        links: z.object({
+          github: z.string().url().optional(),
+          linkedin: z.string().url().optional(),
         }).optional(),
       }),
     }),

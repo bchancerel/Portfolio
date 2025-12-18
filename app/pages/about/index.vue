@@ -129,13 +129,13 @@
 
             <section class="my-2 mx-auto max-w-4xl" @mouseenter="isHovering = true" @mouseleave="isHovering = false">
                 <div class="relative px-12 pt-6">
-                    <div class="overflow-hidden rounded-2xl py-6 mx-6 md:mx-12 max-w-4xl">
-                        <div class="flex transition-transform duration-700 ease-out will-change-transform md:mx-12" :style="{ transform: `translateX(-${index * 100}%)` }">
+                    <div class="overflow-hidden rounded-2xl py-6 mx-6 md:mx-8 max-w-4xl">
+                        <div class="flex transition-transform duration-700 ease-out will-change-transform md:mx-8" :style="{ transform: `translateX(-${index * 100}%)` }">
                             <article v-for="slide in slides" :key="slide.key" class="w-full shrink-0">
                                 <div
                                     class="rounded-2xl border border-slate-800/80
                                         bg-slate-950/60 backdrop-blur
-                                        p-6 md:p-7 mx-2 md:mx-12 max-w-4xl
+                                        p-6 md:p-7 mx-2 md:mx-8 max-w-4xl
                                         transition hover:-translate-y-1 hover:border-sky-400/60"
                                 >
                                     <div class="flex items-start justify-between gap-4">
