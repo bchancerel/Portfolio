@@ -1,7 +1,6 @@
 <script setup lang="ts">
 const route = useRoute()
 
-// slug peut être string ou string[]
 const slug = computed(() =>
   Array.isArray(route.params.slug)
     ? route.params.slug as string[]
