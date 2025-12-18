@@ -1,43 +1,10 @@
 <script setup lang="ts">
     import type { Collections } from '@nuxt/content'
-    import { onMounted, onBeforeUnmount } from 'vue'
-
 
     const { data: about } = await useAsyncData<Collections['about'] | null>(
         'about-page',
         () => queryCollection('about').first()
     )
-
-    const slides = computed(() => ([
-        { key: 'stack_dev', title: 'Stack dev', items: about.value?.stack_dev ?? [] },
-        { key: 'stack_qa', title: 'Stack QA', items: about.value?.stack_qa ?? [] },
-        { key: 'languages', title: 'Langages', items: about.value?.languages ?? [] },
-        { key: 'outils', title: 'Outils', items: about.value?.outils ?? [] },
-        ]).filter(s => s.items.length > 0))
-
-    const index = ref(0)
-    const isHovering = ref(false)
-
-    const goTo = (i: number) => {
-        const n = slides.value.length
-        if (!n) return
-        index.value = (i + n) % n
-    }
-
-    const next = () => goTo(index.value + 1)
-    const prev = () => goTo(index.value - 1)
-
-    let timer: ReturnType<typeof setInterval> | null = null
-
-    onMounted(() => {
-        timer = setInterval(() => {
-            if (!isHovering.value) next()
-        }, 7000)
-    })
-
-    onBeforeUnmount(() => {
-        if (timer) clearInterval(timer)
-    })
 
     if (!about.value) {
         throw createError({ statusCode: 404, statusMessage: 'About not found' })
@@ -97,7 +64,7 @@
                             class="inline-flex items-center gap-2 rounded-xl border border-slate-800/80 bg-slate-950/60 px-4 py-2
                                     text-sm text-slate-200 transition hover:border-sky-400/60 hover:text-sky-200"
                         >
-                            Mes projets →
+                            Mes projets <Icon name="mdi:arrow-right-circle-outline" class="h-4 w-4" />
                         </NuxtLink>
 
                         <NuxtLink
@@ -127,76 +94,7 @@
                 </div>
             </header>
 
-            <section class="my-2 mx-auto max-w-4xl" @mouseenter="isHovering = true" @mouseleave="isHovering = false">
-                <div class="relative px-12 pt-6">
-                    <div class="overflow-hidden rounded-2xl py-6 mx-6 md:mx-8 max-w-4xl">
-                        <div class="flex transition-transform duration-700 ease-out will-change-transform md:mx-8" :style="{ transform: `translateX(-${index * 100}%)` }">
-                            <article v-for="slide in slides" :key="slide.key" class="w-full shrink-0">
-                                <div
-                                    class="rounded-2xl border border-slate-800/80
-                                        bg-slate-950/60 backdrop-blur
-                                        p-6 md:p-7 mx-2 md:mx-8 max-w-4xl
-                                        transition hover:-translate-y-1 hover:border-sky-400/60"
-                                >
-                                    <div class="flex items-start justify-between gap-4">
-                                        <div>
-                                            <h2 class="text-xl font-semibold tracking-tight text-slate-100">
-                                                {{ slide.title }}
-                                            </h2>
-                                        </div>
-
-                                    </div>
-
-                                    <div class="mt-4 flex flex-wrap gap-2">
-                                        <span
-                                            v-for="item in slide.items"
-                                            :key="item"
-                                            class="rounded-full border border-slate-800/70 bg-slate-900/50
-                                                px-2.5 py-1 text-[11px] uppercase tracking-wide text-slate-300"
-                                        >
-                                            {{ item }}
-                                        </span>
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
-                    </div>
-
-                    <button
-                        type="button"
-                        class="absolute left-2 top-1/2 -translate-y-1/2
-                                rounded-xl border border-slate-800/80 bg-slate-950/70 px-3 py-2
-                                text-slate-200 transition hover:border-sky-400/60 hover:text-sky-200"
-                        aria-label="Previous slide"
-                        @click="prev"
-                    >
-                        <Icon name="mdi:chevron-left" class="h-4 w-4" />
-                    </button>
-
-                    <button
-                        type="button"
-                        class="absolute right-2 top-1/2 -translate-y-1/2
-                                rounded-xl border border-slate-800/80 bg-slate-950/70 px-3 py-2
-                                text-slate-200 transition hover:border-sky-400/60 hover:text-sky-200"
-                        aria-label="Next slide"
-                        @click="next"
-                    >
-                        <Icon name="mdi:chevron-right" class="h-4 w-4" />
-                    </button>
-                </div>
-
-                <div class="mt-4 flex items-center justify-center gap-2">
-                    <button
-                        v-for="(_, i) in slides"
-                        :key="i"
-                        type="button"
-                        class="h-2.5 w-2.5 rounded-full transition"
-                        :class="i === index ? 'bg-sky-400' : 'bg-slate-700 hover:bg-slate-500'"
-                        :aria-label="`Go to slide ${i + 1}`"
-                        @click="goTo(i)"
-                    />
-                </div>
-            </section>
+            <AboutCarousel :about="about" />
 
             <section class="rounded-2xl border border-slate-800/80 bg-slate-950/60 p-5 md:p-7 mt-10 canvas-card-show">
                 <div 

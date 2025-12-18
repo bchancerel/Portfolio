@@ -1,7 +1,6 @@
 ---
 title: "Benjamin — Développeur Front-end & QA"
 subtitle: "Je construis des interfaces modernes en gardant une vraie culture QA."
-intro: "Développeur front-end & QA Engineer, je conçois des interfaces propres, fluides et fiables."
 ---
 
 **Bienvenue sur mon portfolio !** 

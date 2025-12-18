@@ -109,3 +109,26 @@ body::after {
     box-shadow: 0 0 18px rgba(52, 211, 153, 0.15);
   }
 }
+
+.carousel-track {
+  animation: marquee var(--duration, 16s) linear infinite;
+}
+
+.carousel-mask:hover .carousel-track {
+  animation-play-state: paused;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(calc(-1 * var(--marquee-distance))); }
+}
+
+.carousel-mask {
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+
+a {
+  cursor: pointer;
+  will-change: transform;
+}

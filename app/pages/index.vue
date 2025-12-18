@@ -1,7 +1,7 @@
 <script setup lang="ts">
-const { data: home } = await useAsyncData('home', () =>
-  queryCollection('content').path('/').first()
-)
+    const { data: home } = await useAsyncData('home', () =>
+        queryCollection('content').path('/').first()
+    )
 
     if (!home.value) {
         throw createError({
@@ -10,7 +10,6 @@ const { data: home } = await useAsyncData('home', () =>
             fatal: true
         })
     }
-
 </script>
 
 <template>
@@ -38,19 +37,8 @@ const { data: home } = await useAsyncData('home', () =>
                         {{ home.subtitle }}
                     </p>
 
-                    <p v-if="home.intro" class="mb-8 max-w-xl text-sm text-slate-300 md:text-base">
-                        {{ home.intro }}
-                    </p>
-
                     <div class="flex flex-wrap gap-3 text-xs md:text-sm">
-                        <NuxtLink 
-                            to="/experiences"
-                            class="rounded-full bg-sky-500 px-4 py-2 font-medium text-slate-950 shadow-sm transition hover:bg-sky-400"
-                        > Voir mes projets
-                        </NuxtLink>
-                        <a href="#contact" class="rounded-full border border-slate-700/80 px-4 py-2 font-medium text-slate-200 transition hover:border-sky-400 hover:text-sky-200">
-                            Me contacter
-                        </a>
+                        <BtnHome />
                     </div>
                 </div>
 
@@ -116,26 +104,7 @@ const { data: home } = await useAsyncData('home', () =>
                 </div>
             </section>
 
-            <section id="contact" class="border-t border-slate-800/80 pt-8 text-sm text-slate-300">
-                <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-                    <div>
-                        <h2 class="mb-1 text-base font-semibold">On travaille ensemble ?</h2>
-                        <p class="text-xs text-slate-400 md:text-sm">
-                            Open aux missions front, refontes d'interfaces, et projets où la qualité compte
-                            vraiment.
-                        </p>
-                    </div>
-
-                    <div class="flex flex-wrap gap-3 text-xs">
-                        <a href="mailto:benjamin.chancerel@outlook.com" class="rounded-full bg-sky-500 px-4 py-2 font-medium text-slate-950 transition hover:bg-sky-400">
-                            M'écrire
-                        </a>
-                        <a href="https://www.linkedin.com" target="_blank" class="rounded-full border border-slate-700/80 px-4 py-2 font-medium text-slate-200 transition hover:border-sky-400 hover:text-sky-200">
-                            LinkedIn
-                        </a>
-                    </div>
-                </div>
-            </section>
+            <LatestProjectsPreview :limit="2" class="mt-8" />
         </div>
     </main>
 </template>

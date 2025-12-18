@@ -8,7 +8,6 @@ export default defineContentConfig({
       schema: z.object({
         title: z.string(),
         subtitle: z.string().optional(),
-        intro: z.string().optional()
       })
     }),
 
@@ -44,7 +43,7 @@ export default defineContentConfig({
     }),
 
     about: defineCollection({
-      type: 'data',
+      type: 'page',
       source: 'about.md',
       schema: z.object({
         title: z.string(),
