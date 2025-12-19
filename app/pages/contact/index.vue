@@ -16,7 +16,7 @@
 </script>
 
 <template>
-    <main class="min-h-screen bg-slate-950 text-slate-100">
+    <main class="bg-slate-950 text-slate-100">
         <div class="canvas-bg" />
 
         <div class="relative mx-auto max-w-4xl px-4 py-18">
