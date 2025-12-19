@@ -17,14 +17,6 @@
         <div class="canvas-bg"/>
         <div class="relative mx-auto max-w-6xl px-4 md:px-6 py-10 md:py-14">
 
-            <header class="mb-10 flex items-center justify-between">
-                <img
-                    src="/images/Logo-Bleu.webp"
-                    alt="Web Ben Creations"
-                    class="h-12 w-auto opacity-90 transition hover:opacity-100"
-                >
-            </header>
-
 
             <section v-if="home" id="about" class="mb-10 grid gap-8 md:grid-cols-[minmax(0,2fr)_minmax(0,1.4fr)] md:items-start">
                 <div class="my-auto">

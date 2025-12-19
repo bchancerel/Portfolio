@@ -19,7 +19,7 @@
     <main class="min-h-screen bg-slate-950 text-slate-100">
         <div class="canvas-bg" />
 
-        <div class="relative mx-auto max-w-4xl px-4 py-24">
+        <div class="relative mx-auto max-w-4xl px-4 py-18">
             <header class="mb-16 text-center">
                 <h1 class="text-4xl font-semibold tracking-tight md:text-5xl">
                     {{ contact?.title }}

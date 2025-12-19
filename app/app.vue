@@ -23,6 +23,8 @@
 
 <template>
   <div class="min-h-screen bg-slate-950 text-slate-100">
+    <AppNavbar />
+
     <div class="scroll-indicator">
       <div class="scroll-indicator__bar" :style="{ transform: `scaleX(${progress})` }" />
     </div>
