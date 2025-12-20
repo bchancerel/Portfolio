@@ -1,6 +1,11 @@
 import tailwindcss from "@tailwindcss/vite";
 
 export default defineNuxtConfig({
+  ssr: false,
+  nitro: {
+    preset: 'static'
+  },
+
   app: {
     head: {
       title: 'Benjamin Chancerel | Portfolio',
@@ -17,14 +22,8 @@ export default defineNuxtConfig({
     '@nuxt/icon',
   ],
   devtools: { enabled: true },
-  future: {
-    compatibilityVersion: 4,
-  },
+  future: { compatibilityVersion: 4 },
   compatibilityDate: '2024-04-03',
   css: ['./app/assets/css/main.css'],
-  vite: {
-    plugins: [
-      tailwindcss(),
-    ],
-  },
+  vite: { plugins: [tailwindcss()] },
 })
