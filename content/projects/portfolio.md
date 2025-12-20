@@ -20,7 +20,7 @@ links:
 Ce projet est né d’un besoin simple : **présenter mon profil autrement qu’avec un CV PDF**.  
 Je voulais un support vivant, évolutif et techniquement solide, qui reflète à la fois mes compétences front-end et mon sens du détail produit.
 
-Le portfolio regroupe mes **expériences professionnelles**et mes **projets**.
+Le portfolio regroupe mes **expériences professionnelles** et mes **projets**.
 
 ---
 
