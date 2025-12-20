@@ -11,7 +11,7 @@ techs:
 images: "/images/projects/portfolio.webp"
 date: "2025-12"
 links:
-  demo: "https://ton-site.dev"
+  demo: "https://www.benjaminchancerel.com/"
   repo: "https://github.com/bchancerel/Portfolio"
 ---
 
