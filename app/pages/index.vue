@@ -91,7 +91,7 @@
             </section>
 
             <section v-if="home" class="mb-16 border-y border-slate-800/80 bg-slate-950/60 px-0 py-8 md:px-6">
-                <div class="prose prose-invert max-w-none prose-headings:font-semibold prose-h2:text-lg">
+                <div class="prose prose-invert max-w-none prose-headings:font-semibold prose-h2:text-lg px-4 md:px-0">
                     <ContentRenderer :value="home" />
                 </div>
             </section>
